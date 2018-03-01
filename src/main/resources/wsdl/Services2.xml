@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:axis2="http://authentication/org/" xmlns:ns1="http://authentication/org/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://authentication.org/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://authentication/org/">
+    <wsdl:documentation>Services</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax21="http://authentication.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://authentication.org/xsd">
+            <xs:complexType name="BFDBiometricRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="fingerPositionTemplateModel" nillable="true" type="ns0:FingerPositionTemplateModel"/>
+                    <xs:element minOccurs="0" name="uDC" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FingerPositionTemplateModel">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="binary_template" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="finger_position" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ns="http://authentication/org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://authentication/org/xsd">
+            <xs:element name="BFDBiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="bfdBiometricRequest" nillable="true" type="ns0:BFDBiometricRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BFDBiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Binary_template" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Finger_position" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="UDC" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="BiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DemoAuthenticationservice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="beneficiary_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DemoAuthenticationserviceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="IRISBiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Binary_template" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Iris_position" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="UDC" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="IRISBiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PIDBlockFingerPrintAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encryptedPid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encSessionKey" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encHmac" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="certificateIdentifier" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="dataType" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PIDBlockFingerPrintAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PIDBlockIrisAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encryptedPid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encSessionKey" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="encHmac" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="certificateIdentifier" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="dataType" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PIDBlockIrisAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SecuredBiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Binary_template" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Finger_position" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="UDC" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="agency_code" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sessionKey" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SecuredBiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="scholorBFDBiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="studentId" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="dmhCode" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="fingerPositionTemplateModel" nillable="true" type="ns0:FingerPositionTemplateModel"/>
+                        <xs:element minOccurs="0" name="udc" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="scholorBFDBiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="scholorBiometricAuthService">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="studentId" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="dmhCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Binary_template" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Finger_position" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="udc" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="scholorBiometricAuthServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="srdhUidVerification">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="uid_num" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="eid_num" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="srdhUidVerificationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="srdhUidVerificationRequest">
+        <wsdl:part name="parameters" element="ns1:srdhUidVerification"/>
+    </wsdl:message>
+    <wsdl:message name="srdhUidVerificationResponse">
+        <wsdl:part name="parameters" element="ns1:srdhUidVerificationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="PIDBlockIrisAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:PIDBlockIrisAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="PIDBlockIrisAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:PIDBlockIrisAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="scholorBiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:scholorBiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="scholorBiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:scholorBiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="BiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:BiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="BiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:BiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DemoAuthenticationserviceRequest">
+        <wsdl:part name="parameters" element="ns1:DemoAuthenticationservice"/>
+    </wsdl:message>
+    <wsdl:message name="DemoAuthenticationserviceResponse">
+        <wsdl:part name="parameters" element="ns1:DemoAuthenticationserviceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="scholorBFDBiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:scholorBFDBiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="scholorBFDBiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:scholorBFDBiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IRISBiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:IRISBiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="IRISBiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:IRISBiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="PIDBlockFingerPrintAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:PIDBlockFingerPrintAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="PIDBlockFingerPrintAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:PIDBlockFingerPrintAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SecuredBiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:SecuredBiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="SecuredBiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:SecuredBiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="BFDBiometricAuthServiceRequest">
+        <wsdl:part name="parameters" element="ns1:BFDBiometricAuthService"/>
+    </wsdl:message>
+    <wsdl:message name="BFDBiometricAuthServiceResponse">
+        <wsdl:part name="parameters" element="ns1:BFDBiometricAuthServiceResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ServicesPortType">
+        <wsdl:operation name="srdhUidVerification">
+            <wsdl:input message="axis2:srdhUidVerificationRequest" wsaw:Action="urn:srdhUidVerification"/>
+            <wsdl:output message="axis2:srdhUidVerificationResponse" wsaw:Action="urn:srdhUidVerificationResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockIrisAuthService">
+            <wsdl:input message="axis2:PIDBlockIrisAuthServiceRequest" wsaw:Action="urn:PIDBlockIrisAuthService"/>
+            <wsdl:output message="axis2:PIDBlockIrisAuthServiceResponse" wsaw:Action="urn:PIDBlockIrisAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBiometricAuthService">
+            <wsdl:input message="axis2:scholorBiometricAuthServiceRequest" wsaw:Action="urn:scholorBiometricAuthService"/>
+            <wsdl:output message="axis2:scholorBiometricAuthServiceResponse" wsaw:Action="urn:scholorBiometricAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="BiometricAuthService">
+            <wsdl:input message="axis2:BiometricAuthServiceRequest" wsaw:Action="urn:BiometricAuthService"/>
+            <wsdl:output message="axis2:BiometricAuthServiceResponse" wsaw:Action="urn:BiometricAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DemoAuthenticationservice">
+            <wsdl:input message="axis2:DemoAuthenticationserviceRequest" wsaw:Action="urn:DemoAuthenticationservice"/>
+            <wsdl:output message="axis2:DemoAuthenticationserviceResponse" wsaw:Action="urn:DemoAuthenticationserviceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBFDBiometricAuthService">
+            <wsdl:input message="axis2:scholorBFDBiometricAuthServiceRequest" wsaw:Action="urn:scholorBFDBiometricAuthService"/>
+            <wsdl:output message="axis2:scholorBFDBiometricAuthServiceResponse" wsaw:Action="urn:scholorBFDBiometricAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="IRISBiometricAuthService">
+            <wsdl:input message="axis2:IRISBiometricAuthServiceRequest" wsaw:Action="urn:IRISBiometricAuthService"/>
+            <wsdl:output message="axis2:IRISBiometricAuthServiceResponse" wsaw:Action="urn:IRISBiometricAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockFingerPrintAuthService">
+            <wsdl:input message="axis2:PIDBlockFingerPrintAuthServiceRequest" wsaw:Action="urn:PIDBlockFingerPrintAuthService"/>
+            <wsdl:output message="axis2:PIDBlockFingerPrintAuthServiceResponse" wsaw:Action="urn:PIDBlockFingerPrintAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="SecuredBiometricAuthService">
+            <wsdl:input message="axis2:SecuredBiometricAuthServiceRequest" wsaw:Action="urn:SecuredBiometricAuthService"/>
+            <wsdl:output message="axis2:SecuredBiometricAuthServiceResponse" wsaw:Action="urn:SecuredBiometricAuthServiceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="BFDBiometricAuthService">
+            <wsdl:input message="axis2:BFDBiometricAuthServiceRequest" wsaw:Action="urn:BFDBiometricAuthService"/>
+            <wsdl:output message="axis2:BFDBiometricAuthServiceResponse" wsaw:Action="urn:BFDBiometricAuthServiceResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ServicesSOAP11Binding" type="axis2:ServicesPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="srdhUidVerification">
+            <soap:operation soapAction="urn:srdhUidVerification" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockIrisAuthService">
+            <soap:operation soapAction="urn:PIDBlockIrisAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBiometricAuthService">
+            <soap:operation soapAction="urn:scholorBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BiometricAuthService">
+            <soap:operation soapAction="urn:BiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DemoAuthenticationservice">
+            <soap:operation soapAction="urn:DemoAuthenticationservice" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBFDBiometricAuthService">
+            <soap:operation soapAction="urn:scholorBFDBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="IRISBiometricAuthService">
+            <soap:operation soapAction="urn:IRISBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockFingerPrintAuthService">
+            <soap:operation soapAction="urn:PIDBlockFingerPrintAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SecuredBiometricAuthService">
+            <soap:operation soapAction="urn:SecuredBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BFDBiometricAuthService">
+            <soap:operation soapAction="urn:BFDBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServicesSOAP12Binding" type="axis2:ServicesPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="srdhUidVerification">
+            <soap12:operation soapAction="urn:srdhUidVerification" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockIrisAuthService">
+            <soap12:operation soapAction="urn:PIDBlockIrisAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBiometricAuthService">
+            <soap12:operation soapAction="urn:scholorBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BiometricAuthService">
+            <soap12:operation soapAction="urn:BiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DemoAuthenticationservice">
+            <soap12:operation soapAction="urn:DemoAuthenticationservice" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBFDBiometricAuthService">
+            <soap12:operation soapAction="urn:scholorBFDBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="IRISBiometricAuthService">
+            <soap12:operation soapAction="urn:IRISBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockFingerPrintAuthService">
+            <soap12:operation soapAction="urn:PIDBlockFingerPrintAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SecuredBiometricAuthService">
+            <soap12:operation soapAction="urn:SecuredBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BFDBiometricAuthService">
+            <soap12:operation soapAction="urn:BFDBiometricAuthService" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServicesHttpBinding" type="axis2:ServicesPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="srdhUidVerification">
+            <http:operation location="Services/srdhUidVerification"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockIrisAuthService">
+            <http:operation location="Services/PIDBlockIrisAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBiometricAuthService">
+            <http:operation location="Services/scholorBiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BiometricAuthService">
+            <http:operation location="Services/BiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DemoAuthenticationservice">
+            <http:operation location="Services/DemoAuthenticationservice"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="scholorBFDBiometricAuthService">
+            <http:operation location="Services/scholorBFDBiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="IRISBiometricAuthService">
+            <http:operation location="Services/IRISBiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PIDBlockFingerPrintAuthService">
+            <http:operation location="Services/PIDBlockFingerPrintAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SecuredBiometricAuthService">
+            <http:operation location="Services/SecuredBiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="BFDBiometricAuthService">
+            <http:operation location="Services/BFDBiometricAuthService"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Services">
+        <wsdl:port name="ServicesSOAP11port_http" binding="axis2:ServicesSOAP11Binding">
+            <soap:address location="http://164.100.132.195:8010/SRDHSecuredVerificationServices/services/Services.ServicesSOAP11port_http/"/>
+        </wsdl:port>
+        <wsdl:port name="ServicesSOAP12port_http" binding="axis2:ServicesSOAP12Binding">
+            <soap12:address location="http://164.100.132.195:8010/SRDHSecuredVerificationServices/services/Services.ServicesSOAP12port_http/"/>
+        </wsdl:port>
+        <wsdl:port name="ServicesHttpport" binding="axis2:ServicesHttpBinding">
+            <http:address location="http://164.100.132.195:8010/SRDHSecuredVerificationServices/services/Services.ServicesHttpport/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
